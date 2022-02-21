@@ -1,0 +1,9 @@
+.user-panel>.info {
+  padding: 5px 5px 5px 15px;
+  line-height: 1;
+  position: unset;
+  left: 55px;
+}
+.products_files_area {
+  margin-top: 15px;
+}
