@@ -8,7 +8,7 @@
 <!-- Main content -->
 <section class="content container-fluid">
 
-  <form method="POST" action="<?php echo BASE_URL; ?>products/add_action" >
+  <form method="POST" enctype="multipart/form-data" action="<?php echo BASE_URL; ?>products/add_action" >
     <div class="box">
       <div class="box-header">
         <h3 class="box-title">Novo Produto</h3>

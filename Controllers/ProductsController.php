@@ -87,6 +87,7 @@ class ProductsController extends Controller {
 	}
 
 	public function add_action() {
+		//echo '<pre>';print_r($_FILES);exit;echo '</pre>';
 		
 		if(!empty($_POST['name'])) {
 			//echo '<pre>';print_r($_POST);exit;echo '</pre>';

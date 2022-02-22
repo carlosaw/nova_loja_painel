@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 21-Fev-2022 às 21:25
+-- Tempo de geração: 22-Fev-2022 às 15:49
 -- Versão do servidor: 10.4.22-MariaDB
 -- versão do PHP: 7.4.26
 
@@ -239,7 +239,8 @@ INSERT INTO `products` (`id`, `id_category`, `id_brand`, `name`, `description`, 
 (6, 6, 3, 'Monitor 20 polegadas', 'Alguma outra descrição', 10, 699, 0, 5, 1, 0, 0, 0, '1,2,4', 0.4, 20, 15, 20, 15),
 (7, 6, 3, 'Monitor 19 polegadas', 'Alguma outra descrição', 10, 889, 999, 0, 1, 0, 0, 0, '2,4', 0.3, 20, 15, 20, 15),
 (8, 6, 1, 'Monitor 18 polegadas', 'Alguma outra descrição', 10, 599, 699, 0, 1, 0, 0, 0, '4', 0.2, 20, 15, 20, 15),
-(22, 9, 4, 'Microfone Apple', '<p>Muito interessante</p>', 3, 650, 799, 0, 1, 0, 0, 1, '1,3', 0.2, 2, 3, 4, 5);
+(22, 9, 4, 'Microfone Apple', '<p>Muito interessante</p>', 3, 650, 799, 0, 1, 0, 0, 1, '1,3', 0.2, 2, 3, 4, 5),
+(23, 7, 1, 'Produto com IMAGEM', '<p>Qualquer uma...</p>', 10, 95, 100, 0, 1, 0, 1, 0, '1,3', 2, 23, 22, 22, 22);
 
 -- --------------------------------------------------------
 
@@ -268,7 +269,9 @@ INSERT INTO `products_images` (`id`, `id_product`, `url`) VALUES
 (8, 8, '7.jpg'),
 (9, 2, '3.jpg'),
 (10, 2, '4.jpg'),
-(11, 2, '7.jpg');
+(11, 2, '7.jpg'),
+(17, 23, '5f572f47db3e505b82cdcb1387c4d565.jpg'),
+(18, 23, '48a1a2c7f86d72def3640d4570323609.jpg');
 
 -- --------------------------------------------------------
 
@@ -305,7 +308,9 @@ INSERT INTO `products_options` (`id`, `id_product`, `id_option`, `p_value`) VALU
 (15, 7, 4, '19'),
 (16, 8, 4, '18'),
 (34, 22, 1, 'Branco'),
-(35, 22, 3, '4GB');
+(35, 22, 3, '4GB'),
+(36, 23, 1, 'Azul'),
+(37, 23, 3, '2GB');
 
 -- --------------------------------------------------------
 
@@ -485,7 +490,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `id_permission`, `email`, `password`, `name`, `admin`, `token`) VALUES
-(1, 1, 'carlosfreevg@gmail.com', '698dc19d489c4e4db73e28a713eab07b', 'Carlos Alberto', 1, '48ef6ee187a90bcdace480f3b372bd69'),
+(1, 1, 'carlosfreevg@gmail.com', '698dc19d489c4e4db73e28a713eab07b', 'Carlos Alberto', 1, '1430c30f5d542c110cb717c1a1d57452'),
 (2, 0, 'c53506150352904262381@sandbox.pagseguro.com.br', 'xRj8143TGtGy3200', NULL, 0, NULL),
 (3, 0, 'cc53506150352904262381@sandbox.pagseguro.com.br /><br/><br/><strong>Senha:</strong><br/><input type=', '', NULL, 0, NULL),
 (4, 0, 'c53506150352904262381@sandbox.pagseguro.com.br /><br/><br/><strong>Senha:</strong><br/><input type=', '', NULL, 0, NULL),
@@ -648,19 +653,19 @@ ALTER TABLE `permission_links`
 -- AUTO_INCREMENT de tabela `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT de tabela `products_images`
 --
 ALTER TABLE `products_images`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de tabela `products_options`
 --
 ALTER TABLE `products_options`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT de tabela `purchases`
