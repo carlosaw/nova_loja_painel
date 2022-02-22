@@ -15,10 +15,11 @@ class Products extends Model {
 
 		if($sql->rowCount() > 0) {
 			$array = $sql->fetch(\PDO::FETCH_ASSOC);
+			
 			// Pegando as options do produto
 			$sql = "SELECT id_option, p_value FROM products_options WHERE id_product = :id";
 			$sql = $this->db->prepare($sql);
-      $sql->bindValue(':id',$id );
+      $sql->bindValue(':id', $id);
 			$sql->execute();
 
 			if($sql->rowCount() > 0) {
@@ -217,7 +218,7 @@ class Products extends Model {
 			exit;*/
 			// Salvar imagens
 			$filename = md5(time().rand(0,999).rand(0,999)).'.jpg';
-			imagejpeg($img, '../nova_loja/media/products/'.$filename);
+			imagejpeg($img, PATH_SITE.'media/products/'.$filename);
 
 			$sql = "INSERT INTO products_images (id_product, url) VALUES (:id_product, :url)";
 			$sql = $this->db->prepare($sql);

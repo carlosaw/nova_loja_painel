@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 22-Fev-2022 às 15:49
+-- Tempo de geração: 22-Fev-2022 às 21:43
 -- Versão do servidor: 10.4.22-MariaDB
 -- versão do PHP: 7.4.26
 
@@ -240,7 +240,8 @@ INSERT INTO `products` (`id`, `id_category`, `id_brand`, `name`, `description`, 
 (7, 6, 3, 'Monitor 19 polegadas', 'Alguma outra descrição', 10, 889, 999, 0, 1, 0, 0, 0, '2,4', 0.3, 20, 15, 20, 15),
 (8, 6, 1, 'Monitor 18 polegadas', 'Alguma outra descrição', 10, 599, 699, 0, 1, 0, 0, 0, '4', 0.2, 20, 15, 20, 15),
 (22, 9, 4, 'Microfone Apple', '<p>Muito interessante</p>', 3, 650, 799, 0, 1, 0, 0, 1, '1,3', 0.2, 2, 3, 4, 5),
-(23, 7, 1, 'Produto com IMAGEM', '<p>Qualquer uma...</p>', 10, 95, 100, 0, 1, 0, 1, 0, '1,3', 2, 23, 22, 22, 22);
+(23, 7, 1, 'Produto com IMAGEM', '<p>Qualquer uma...</p>', 10, 95, 100, 0, 1, 0, 1, 0, '1,3', 2, 23, 22, 22, 22),
+(24, 6, 1, 'Produto de TESTE com IMAGEM', '<p>Qualquer uma...</p>', 12, 122, 123, 0, 1, 0, 1, 0, '1,4', 2, 34, 32, 32, 21);
 
 -- --------------------------------------------------------
 
@@ -271,7 +272,9 @@ INSERT INTO `products_images` (`id`, `id_product`, `url`) VALUES
 (10, 2, '4.jpg'),
 (11, 2, '7.jpg'),
 (17, 23, '5f572f47db3e505b82cdcb1387c4d565.jpg'),
-(18, 23, '48a1a2c7f86d72def3640d4570323609.jpg');
+(18, 23, '48a1a2c7f86d72def3640d4570323609.jpg'),
+(19, 24, '99431df90ffae1acb5d4916ed69bee98.jpg'),
+(20, 24, 'ab8d01c34b58802733a82bc2d53c270d.jpg');
 
 -- --------------------------------------------------------
 
@@ -310,7 +313,9 @@ INSERT INTO `products_options` (`id`, `id_product`, `id_option`, `p_value`) VALU
 (34, 22, 1, 'Branco'),
 (35, 22, 3, '4GB'),
 (36, 23, 1, 'Azul'),
-(37, 23, 3, '2GB');
+(37, 23, 3, '2GB'),
+(38, 24, 1, 'Marrom'),
+(39, 24, 4, '54');
 
 -- --------------------------------------------------------
 
@@ -653,19 +658,19 @@ ALTER TABLE `permission_links`
 -- AUTO_INCREMENT de tabela `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT de tabela `products_images`
 --
 ALTER TABLE `products_images`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de tabela `products_options`
 --
 ALTER TABLE `products_options`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT de tabela `purchases`

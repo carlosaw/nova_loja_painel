@@ -1,6 +1,7 @@
 <?php
 require 'environment.php';
-
+// meusite.com./nova_loja = PATH_SITE
+// meusite.com/nova_loja/painel = PATH_SITE
 $config = array();
 if(ENVIRONMENT == 'development') {
 	define("BASE_URL", "http://localhost/nova_loja_painel/");

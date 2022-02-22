@@ -66,6 +66,13 @@ class ProductsController extends Controller {
 		}		
 	}
 
+	public function edit_action() {
+		echo '<pre>';print_r($_POST);exit;echo '</pre>';
+		
+		
+		
+	}
+
 	// Adiciona Produto
   public function add() {
 		$cat = new Categories();

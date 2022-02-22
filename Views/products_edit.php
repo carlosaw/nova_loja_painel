@@ -128,7 +128,17 @@
         <hr/>
 
         <label>Imagens do Produto</label><br/>
-          <?php print_r($info['images']); ?>
+          
+          <div class="images_area">
+            <?php foreach($info['images'] as $id_image => $url): ?>
+              <div class="p_image">
+                <img src="<?php echo $url; ?>" /><br/>
+                <a href="javascript:;">[ Deletar ]</a>
+                <input type="hidden" name="c_images[]" value="<?php echo $id_image; ?>" />
+              </div>
+            <?php endforeach; ?>
+          </div>
+          
         <button class="p_new_image btn btn-primary"><b>+</b></button><br/>
 
         <div class="products_files_area">
