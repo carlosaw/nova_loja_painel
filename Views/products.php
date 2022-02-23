@@ -4,6 +4,7 @@
     Produtos
   </h1>
 </section>
+
 <!-- Main content -->
 <section class="content container-fluid">
   <div class="box">
@@ -31,6 +32,7 @@
           <td>
             <?php echo $item['name']; ?><br /><small><?php echo $item['name_brand']; ?></small>
           </td>
+          
           <td><?php echo $item['stock']; ?></td>
 
           <td>
@@ -41,8 +43,7 @@
           <td>
             <div class="btn-group">
               <a href="<?php echo BASE_URL.'products/edit/'.$item['id']; ?>" class="btn btn-xs btn-primary">Editar</a>
-              <a href="<?php echo BASE_URL.'products/del/'.$item['id']; ?>"
-                class="btn btn-xs btn-danger">Excluir</a>
+              <a href="<?php echo BASE_URL.'products/del/'.$item['id']; ?>" onclick="return confirm('Tem certeza que deseja EXCLUIR este produto?')" class="btn btn-xs btn-danger">Excluir</a>                
             </div>
           </td>
         </tr>

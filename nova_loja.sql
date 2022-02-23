@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 22-Fev-2022 às 21:43
+-- Tempo de geração: 23-Fev-2022 às 16:12
 -- Versão do servidor: 10.4.22-MariaDB
 -- versão do PHP: 7.4.26
 
@@ -240,8 +240,8 @@ INSERT INTO `products` (`id`, `id_category`, `id_brand`, `name`, `description`, 
 (7, 6, 3, 'Monitor 19 polegadas', 'Alguma outra descrição', 10, 889, 999, 0, 1, 0, 0, 0, '2,4', 0.3, 20, 15, 20, 15),
 (8, 6, 1, 'Monitor 18 polegadas', 'Alguma outra descrição', 10, 599, 699, 0, 1, 0, 0, 0, '4', 0.2, 20, 15, 20, 15),
 (22, 9, 4, 'Microfone Apple', '<p>Muito interessante</p>', 3, 650, 799, 0, 1, 0, 0, 1, '1,3', 0.2, 2, 3, 4, 5),
-(23, 7, 1, 'Produto com IMAGEM', '<p>Qualquer uma...</p>', 10, 95, 100, 0, 1, 0, 1, 0, '1,3', 2, 23, 22, 22, 22),
-(24, 6, 1, 'Produto de TESTE com IMAGEM', '<p>Qualquer uma...</p>', 12, 122, 123, 0, 1, 0, 1, 0, '1,4', 2, 34, 32, 32, 21);
+(23, 7, 1, 'Produto com IMAGEM', '<p>Qualquer uma...</p>', 0, 95, 100, 0, 1, 0, 1, 0, '1,3', 2, 23, 22, 22, 22),
+(24, 6, 1, 'Produto de TESTE ATUALIZADO', '<p>Qualquer uma...</p>', 12, 122, 123, 0, 1, 0, 1, 0, '1,4', 2, 34, 32, 32, 21);
 
 -- --------------------------------------------------------
 
@@ -273,8 +273,8 @@ INSERT INTO `products_images` (`id`, `id_product`, `url`) VALUES
 (11, 2, '7.jpg'),
 (17, 23, '5f572f47db3e505b82cdcb1387c4d565.jpg'),
 (18, 23, '48a1a2c7f86d72def3640d4570323609.jpg'),
-(19, 24, '99431df90ffae1acb5d4916ed69bee98.jpg'),
-(20, 24, 'ab8d01c34b58802733a82bc2d53c270d.jpg');
+(20, 24, 'ab8d01c34b58802733a82bc2d53c270d.jpg'),
+(21, 24, 'e535c468d45a089b17c3fdf49a5187b7.jpg');
 
 -- --------------------------------------------------------
 
@@ -314,8 +314,8 @@ INSERT INTO `products_options` (`id`, `id_product`, `id_option`, `p_value`) VALU
 (35, 22, 3, '4GB'),
 (36, 23, 1, 'Azul'),
 (37, 23, 3, '2GB'),
-(38, 24, 1, 'Marrom'),
-(39, 24, 4, '54');
+(44, 24, 1, 'Marrom'),
+(45, 24, 4, '54');
 
 -- --------------------------------------------------------
 
@@ -495,7 +495,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `id_permission`, `email`, `password`, `name`, `admin`, `token`) VALUES
-(1, 1, 'carlosfreevg@gmail.com', '698dc19d489c4e4db73e28a713eab07b', 'Carlos Alberto', 1, '1430c30f5d542c110cb717c1a1d57452'),
+(1, 1, 'carlosfreevg@gmail.com', '698dc19d489c4e4db73e28a713eab07b', 'Carlos Alberto', 1, '066d261eb1614d675bf39b15e8cf056c'),
 (2, 0, 'c53506150352904262381@sandbox.pagseguro.com.br', 'xRj8143TGtGy3200', NULL, 0, NULL),
 (3, 0, 'cc53506150352904262381@sandbox.pagseguro.com.br /><br/><br/><strong>Senha:</strong><br/><input type=', '', NULL, 0, NULL),
 (4, 0, 'c53506150352904262381@sandbox.pagseguro.com.br /><br/><br/><strong>Senha:</strong><br/><input type=', '', NULL, 0, NULL),
@@ -664,13 +664,13 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT de tabela `products_images`
 --
 ALTER TABLE `products_images`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de tabela `products_options`
 --
 ALTER TABLE `products_options`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT de tabela `purchases`
