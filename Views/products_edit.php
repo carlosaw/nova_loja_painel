@@ -149,6 +149,41 @@
     </div>
   </form>
 </section>
+
+<section class="content container-fluid">
+  <div class="box">
+    <div class="box-header">
+      <h3 class="box-title">Avaliações</h3>      
+    </div>
+    <div class="box-body">
+      <?php if(count($rates) > 0): ?>
+        <table class="table">
+          <tr>
+            <th>Autor</th>
+            <th>Data da Avaliação</th>
+            <th>Pontos</th>
+            <th>Comentários</th>
+            <th width="130">Ações</th>
+          </tr>
+
+          <?php foreach($rates as $rate): ?>
+            <tr>
+              <td><?php echo $rate['name']; ?></td>
+              <td><?php echo date('d/m/Y H:i', strtotime($rate['date_rated'])); ?></td>
+              <td><?php echo $rate['points']; ?></td>
+              <td><?php echo $rate['comment']; ?></td>
+              <td>
+                <a href="<?php echo BASE_URL; ?>products/del_rate/<?php echo $rate['id']; ?>">[ Excluir ]</a>
+              </td>
+            </tr>
+          <?php endforeach; ?>
+        </table>
+      <?php else: ?>
+        Este produto ainda não possui avaliações.
+      <?php endif; ?>      
+    </div>
+  </div>
+</section>
 <!-- /.content -->
 <script src="https://cdn.tiny.cloud/1/b8gw40se0avjxpl01h65q1uiivhhk4kwkblmowmkfymls3pa/tinymce/5/tinymce.min.js"
   referrerpolicy="origin"></script>

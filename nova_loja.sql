@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 23-Fev-2022 às 16:12
+-- Tempo de geração: 23-Fev-2022 às 20:34
 -- Versão do servidor: 10.4.22-MariaDB
 -- versão do PHP: 7.4.26
 
@@ -232,7 +232,7 @@ CREATE TABLE `products` (
 
 INSERT INTO `products` (`id`, `id_category`, `id_brand`, `name`, `description`, `stock`, `price`, `price_from`, `rating`, `featured`, `sale`, `bestseller`, `new_product`, `options`, `weight`, `width`, `height`, `length`, `diameter`) VALUES
 (1, 6, 1, 'Monitor 21 polegadas', 'Alguma descrição do produto.', 10, 499, 599, 0, 1, 1, 1, 0, '1,2,4', 0.9, 20, 15, 20, 15),
-(2, 6, 2, 'Monitor 18 polegadas', 'Alguma outra descrição', 10, 399, 999, 2, 1, 1, 1, 0, '1,2', 0.8, 20, 15, 20, 15),
+(2, 6, 2, 'Monitor 18 polegadas', '<p>Alguma outra descri&ccedil;&atilde;o</p>', 10, 399, 999, 4, 1, 1, 1, 0, '1,2', 0.8, 20, 15, 20, 15),
 (3, 6, 2, 'Monitor 19 polegadas', 'Alguma outra descrição', 10, 3779, 4399, 0, 1, 0, 0, 1, '1,2', 0.7, 20, 15, 20, 15),
 (4, 6, 3, 'Monitor 17 polegadas', 'Alguma outra descrição', 10, 779, 900, 2, 1, 1, 0, 0, '1,4', 0.6, 20, 15, 20, 15),
 (5, 6, 1, 'Monitor 20 polegadas', 'Alguma outra descrição', 10, 299, 499, 0, 1, 0, 0, 1, '1', 0.5, 20, 15, 20, 15),
@@ -240,7 +240,7 @@ INSERT INTO `products` (`id`, `id_category`, `id_brand`, `name`, `description`, 
 (7, 6, 3, 'Monitor 19 polegadas', 'Alguma outra descrição', 10, 889, 999, 0, 1, 0, 0, 0, '2,4', 0.3, 20, 15, 20, 15),
 (8, 6, 1, 'Monitor 18 polegadas', 'Alguma outra descrição', 10, 599, 699, 0, 1, 0, 0, 0, '4', 0.2, 20, 15, 20, 15),
 (22, 9, 4, 'Microfone Apple', '<p>Muito interessante</p>', 3, 650, 799, 0, 1, 0, 0, 1, '1,3', 0.2, 2, 3, 4, 5),
-(23, 7, 1, 'Produto com IMAGEM', '<p>Qualquer uma...</p>', 0, 95, 100, 0, 1, 0, 1, 0, '1,3', 2, 23, 22, 22, 22),
+(23, 7, 1, 'Produto com IMAGEM', '<p>Qualquer uma...</p>', 2, 95, 100, 0, 1, 0, 1, 0, '1,3', 2, 23, 22, 22, 22),
 (24, 6, 1, 'Produto de TESTE ATUALIZADO', '<p>Qualquer uma...</p>', 12, 122, 123, 0, 1, 0, 1, 0, '1,4', 2, 34, 32, 32, 21);
 
 -- --------------------------------------------------------
@@ -270,11 +270,11 @@ INSERT INTO `products_images` (`id`, `id_product`, `url`) VALUES
 (8, 8, '7.jpg'),
 (9, 2, '3.jpg'),
 (10, 2, '4.jpg'),
-(11, 2, '7.jpg'),
 (17, 23, '5f572f47db3e505b82cdcb1387c4d565.jpg'),
 (18, 23, '48a1a2c7f86d72def3640d4570323609.jpg'),
 (20, 24, 'ab8d01c34b58802733a82bc2d53c270d.jpg'),
-(21, 24, 'e535c468d45a089b17c3fdf49a5187b7.jpg');
+(21, 24, 'e535c468d45a089b17c3fdf49a5187b7.jpg'),
+(22, 22, '52c07a13d411ee5349b31d78941e8412.jpg');
 
 -- --------------------------------------------------------
 
@@ -297,8 +297,6 @@ INSERT INTO `products_options` (`id`, `id_product`, `id_option`, `p_value`) VALU
 (1, 1, 1, 'Azul'),
 (2, 1, 2, '23cm'),
 (3, 1, 4, '31'),
-(4, 2, 1, 'Azul'),
-(5, 2, 2, '19cm'),
 (6, 3, 1, 'Branco'),
 (7, 3, 2, '20cm'),
 (8, 4, 1, 'Preto'),
@@ -310,12 +308,14 @@ INSERT INTO `products_options` (`id`, `id_product`, `id_option`, `p_value`) VALU
 (14, 7, 2, '18cm'),
 (15, 7, 4, '19'),
 (16, 8, 4, '18'),
-(34, 22, 1, 'Branco'),
-(35, 22, 3, '4GB'),
-(36, 23, 1, 'Azul'),
-(37, 23, 3, '2GB'),
 (44, 24, 1, 'Marrom'),
-(45, 24, 4, '54');
+(45, 24, 4, '54'),
+(46, 22, 1, 'Branco'),
+(47, 22, 3, '4GB'),
+(50, 23, 1, 'Azul'),
+(51, 23, 3, '2GB'),
+(52, 2, 1, 'Azul'),
+(53, 2, 2, '19cm');
 
 -- --------------------------------------------------------
 
@@ -471,8 +471,7 @@ CREATE TABLE `rates` (
 --
 
 INSERT INTO `rates` (`id`, `id_product`, `id_user`, `date_rated`, `points`, `comment`) VALUES
-(1, 2, 1, '2022-01-11 21:13:20', 2, 'Produto muito legal'),
-(2, 2, 1, '2022-01-11 21:14:16', 2, 'Produto não muito legal');
+(2, 2, 1, '2022-01-11 21:14:16', 4, 'Produto não muito legal');
 
 -- --------------------------------------------------------
 
@@ -664,13 +663,13 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT de tabela `products_images`
 --
 ALTER TABLE `products_images`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de tabela `products_options`
 --
 ALTER TABLE `products_options`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT de tabela `purchases`
