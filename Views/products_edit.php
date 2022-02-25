@@ -153,7 +153,11 @@
 <section class="content container-fluid">
   <div class="box">
     <div class="box-header">
-      <h3 class="box-title">Avaliações</h3>      
+      <h3 class="box-title">Avaliações</h3>
+      <div class="box-tools">
+      <a href="<?php echo BASE_URL.'products/add_rate'; ?>" class="btn btn-success">Adicionar</a>
+      </div>
+            
     </div>
     <div class="box-body">
       <?php if(count($rates) > 0): ?>

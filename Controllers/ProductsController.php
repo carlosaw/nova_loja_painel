@@ -272,5 +272,35 @@ class ProductsController extends Controller {
 		header("Location: ".BASE_URL."products");
 		exit;
 	}
+
+	public function add_rate() {
+		$this->arrayInfo["errorItems"] = array();
+
+			if(isset($_SESSION['formError']) && count($_SESSION['formError']) > 0) {
+				$this->arrayInfo['errorItems'] = $_SESSION['formError'];
+				unset($_SESSION['formError']);
+			}
+			
+		$this->loadTemplate("rates_add", $this->arrayInfo);
+	}
+
+	public function add_action_rates() {
+		if(!empty($_POST['id_user'])) {
+			$rates = new Rates();
+
+			$id_user = $_POST['id_user'];
+
+			$rates->add($id_product);
+
+			header("Location: ".BASE_URL."rates");
+			exit;
+
+		} else {
+			$_SESSION['formError'] = array();
+
+			header("Location: ".BASE_URL."rates/add");
+			exit;
+		}
+	}
   	
 }
