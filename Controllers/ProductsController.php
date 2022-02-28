@@ -288,9 +288,7 @@ class ProductsController extends Controller {
 		if(!empty($_POST['id_user'])) {
 			$rates = new Rates();
 
-			$id_user = $_POST['id_user'];
-
-			$rates->add($id_product);
+			
 
 			header("Location: ".BASE_URL."rates");
 			exit;

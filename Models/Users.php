@@ -90,4 +90,97 @@ class Users extends Model {
     return $this->uid;
   }
 
+  private function buildGetFilterSql($filter) {
+    $sqlfilter = array();
+
+    if(!empty($filter['name'])) {
+      $sqlfilter[] = '(users.name LIKE :name OR users.email LIKE :email)';
+    }
+    if(!empty($filter['permission'])) {
+      $sqlfilter[] = 'users.id_permission = :permission';
+    }
+    return $sqlfilter;
+  }
+
+  private function buildGetFilterBind($filter, &$sql) {
+    // WHERE (users.name LIKE '%carlos%' OR users.email LIKE '%carlos%')
+    if(!empty($filter['name'])) {
+      $sql->bindValue(':name', '%'.$filter['name'].'%');
+      $sql->bindValue(':email', '%'.$filter['name'].'%');
+    }
+    if(!empty($filter['permission'])) {
+      $sql->bindValue(':permission', $filter['permission']);
+    }
+  }
+
+  public function getAll($filter = array(), $pag = array()) {
+    $array = array();
+
+    $pagfilter = array(
+      'offset' => 0,
+      'limit' => 2
+    );
+    if(!empty($pag['per_page'])) {
+      $pagfilter['limit'] = $pag['per_page'];
+    }
+    if(!empty($pag['currentpage'])) {
+      $pagfilter['offset'] = $pag['currentpage'] * $pagfilter['limit'];
+    }
+    //print_r($pagfilter);exit;
+
+    $sqlfilter = $this->buildGetFilterSql($filter);
+
+    $sql = "SELECT
+              users.id,
+              users.name,
+              users.email,
+              users.admin,
+              permission_groups.name as permission_name
+              FROM users
+              LEFT JOIN permission_groups
+              ON permission_groups.id = users.id_permission";
+              if(count($sqlfilter) > 0) {
+                $sql .= " WHERE ".implode(' AND ', $sqlfilter);
+              }
+
+    $sql .= " ORDER BY users.admin DESC, users.name ASC LIMIT ".$pagfilter['offset'].','.$pagfilter['limit'];
+    /*echo '<pre>';
+    echo $sql;
+    exit;*/
+    $sql = $this->db->prepare($sql);
+
+    $this->buildGetFilterBind($filter, $sql);
+
+    $sql->execute();
+
+    if($sql->rowCount() > 0) {
+      $array = $sql->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    return $array;
+  }
+
+  // PAGINAÇÃO
+  public function getTotal($filter = array()) {
+    $array = array();
+
+    $sqlfilter = $this->buildGetFilterSql($filter);
+
+    $sql = "SELECT COUNT(*) as c FROM users";
+
+    if(count($sqlfilter) > 0) {
+      $sql .= " WHERE ".implode(' AND ', $sqlfilter);
+    }
+
+    $sql = $this->db->prepare($sql);
+
+    $this->buildGetFilterBind($filter, $sql);
+    
+    $sql->execute();
+    $data = $sql->fetch();
+
+    return $data['c'];
+
+  }
+
 }

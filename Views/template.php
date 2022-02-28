@@ -70,24 +70,26 @@ desired effect
     <!-- Header Navbar -->
     <nav class="navbar navbar-static-top" role="navigation">
       <!-- Sidebar toggle button-->
-      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-        <span class="sr-only">Toggle navigation</span>
-      </a>
-      <!-- Navbar Right Menu -->
-      <div class="navbar-custom-menu">
-        <ul class="nav navbar-nav">
+      
+        <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+          <span class="sr-only">Toggle navigation</span>
+        </a>
+        <!-- Navbar Right Menu -->
+        <div class="navbar-custom-menu">
+          <ul class="nav navbar-nav">
 
-          <!-- Control Sidebar Toggle Button -->
-          <li>
-            <a href="<?php echo BASE_URL; ?>config"><i class="fa fa-gears"></i></a>
-          </li>
-          <li>
-            <a href="<?php echo BASE_URL; ?>login/logout">
-              <span class="hidden-xs">Sair</span>
-            </a>
-          </li>
-        </ul>
-      </div>
+            <!-- Control Sidebar Toggle Button -->
+            <li>
+              <a href="<?php echo BASE_URL; ?>config"><i class="fa fa-gears"></i></a>
+            </li>
+            <li>
+              <a href="<?php echo BASE_URL; ?>login/logout">
+                <span class="hidden-xs">Sair</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      
     </nav>
   </header>
   <!-- Left side column. contains the logo and sidebar -->
@@ -140,8 +142,13 @@ desired effect
             <a href="<?php echo BASE_URL; ?>products"><i class="fa fa-link"></i> <span>Produtos</span></a>
           </li>
         <?php endif; ?>
-        
-        
+
+        <?php if( $viewData['user']->hasPermission('users_view') ): ?>
+          <li class="<?php echo ($viewData['menuActive']=='users')?'active':''; ?>">
+            <a href="<?php echo BASE_URL; ?>users"><i class="fa fa-link"></i> <span>Usuários</span></a>
+          </li>
+        <?php endif; ?>
+                
       </ul>
       <!-- /.sidebar-menu -->
     </section>

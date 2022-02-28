@@ -1,9 +1,9 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 23-Fev-2022 às 20:34
+-- Tempo de geração: 28-Fev-2022 às 13:49
 -- Versão do servidor: 10.4.22-MariaDB
 -- versão do PHP: 7.4.26
 
@@ -165,7 +165,8 @@ INSERT INTO `permission_items` (`id`, `name`, `slug`) VALUES
 (4, 'Ver Categorias', 'categories_view'),
 (5, 'Ver Marcas', 'brands_view'),
 (7, 'Ver Páginas', 'pages_view'),
-(8, 'Ver Produtos', 'products_view');
+(8, 'Ver Produtos', 'products_view'),
+(9, 'Ver Usuários', 'users_view');
 
 -- --------------------------------------------------------
 
@@ -191,12 +192,13 @@ INSERT INTO `permission_links` (`id`, `id_permission_group`, `id_permission_item
 (40, 5, 1),
 (41, 5, 2),
 (42, 5, 4),
-(43, 1, 1),
-(44, 1, 2),
-(45, 1, 4),
-(46, 1, 5),
-(47, 1, 7),
-(48, 1, 8);
+(49, 1, 1),
+(50, 1, 2),
+(51, 1, 4),
+(52, 1, 5),
+(53, 1, 7),
+(54, 1, 8),
+(55, 1, 9);
 
 -- --------------------------------------------------------
 
@@ -494,12 +496,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `id_permission`, `email`, `password`, `name`, `admin`, `token`) VALUES
-(1, 1, 'carlosfreevg@gmail.com', '698dc19d489c4e4db73e28a713eab07b', 'Carlos Alberto', 1, '066d261eb1614d675bf39b15e8cf056c'),
-(2, 0, 'c53506150352904262381@sandbox.pagseguro.com.br', 'xRj8143TGtGy3200', NULL, 0, NULL),
-(3, 0, 'cc53506150352904262381@sandbox.pagseguro.com.br /><br/><br/><strong>Senha:</strong><br/><input type=', '', NULL, 0, NULL),
-(4, 0, 'c53506150352904262381@sandbox.pagseguro.com.br /><br/><br/><strong>Senha:</strong><br/><input type=', '', NULL, 0, NULL),
-(7, 5, 'teste@hotmail.com', '698dc19d489c4e4db73e28a713eab07b', NULL, 0, NULL),
-(8, 2, 'carlos@gmail.com', '698dc19d489c4e4db73e28a713eab07b', NULL, 0, NULL);
+(1, 1, 'carlosfreevg@gmail.com', '698dc19d489c4e4db73e28a713eab07b', 'Carlos Alberto', 1, 'cc72f3e18e4829eedafc8b38119f4dc3'),
+(2, 0, 'c53506150352904262381@sandbox.pagseguro.com.br', 'xRj8143TGtGy3200', 'SandBox PagSeguro', 0, NULL),
+(7, 5, 'teste@hotmail.com', '698dc19d489c4e4db73e28a713eab07b', 'Teste', 0, NULL),
+(8, 2, 'carlos@gmail.com', '698dc19d489c4e4db73e28a713eab07b', 'Testador', 0, NULL);
 
 --
 -- Índices para tabelas despejadas
@@ -645,13 +645,13 @@ ALTER TABLE `permission_groups`
 -- AUTO_INCREMENT de tabela `permission_items`
 --
 ALTER TABLE `permission_items`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de tabela `permission_links`
 --
 ALTER TABLE `permission_links`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT de tabela `products`

@@ -28,7 +28,7 @@ class Rates extends Model {
     }
     return $array;
   }
-
+  // Deletar Avaliação
   public function del($id_rate) {
     $sql = "SELECT id_product FROM rates WHERE id = :id";
     $sql = $this->db->prepare($sql);
